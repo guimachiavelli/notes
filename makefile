@@ -5,7 +5,7 @@ tmp_dir = ./tmp
 tmp_files = $(tmp_dir)/*
 
 
-files := $(patsubst $(tmp_dir)/%.txt,$(tmp_dir)/%.html,$(wildcard $(tmp_dir)/*.txt))
+files := $(patsubst $(tmp_dir)/%.md,$(tmp_dir)/%.html,$(wildcard $(tmp_dir)/*.md))
 objects := $(patsubst %.txt,%.html,$(wildcard *.txt))
 
 all:
@@ -14,13 +14,15 @@ all:
 clean:
 	rm $(tmp_files)
 
-build: 
+test:
+	sh for i in $(tmp_files) ; do mv "$i" "${i/-[0-9.]*.md/.md}" ; done
+
+copy: $(notes)
 	cp -r $(notes) $(tmp_dir)
-	rename "s/ /_/g" $(tmp_dir)/*.*
+	cd $(tmp_dir)
+	bash rename.sh $(tmp_dir)
 
+build: $(files)
 
-test: $(files)
-
-%.html: %.txt
+%.html: %.md
 	markdown $< >> $@
-
