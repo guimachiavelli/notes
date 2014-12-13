@@ -1,28 +1,33 @@
-notes_dir = ~/notes
-notes = $(notes_dir)/*
-build_dir = ./build
-tmp_dir = ./tmp
-tmp_files = $(tmp_dir)/*
+.PHONY: clean index
+
+notes = ~/notes
+build = ./dist
+tmp = ./tmp
+processed = $(tmp)/processed
+partials = ./partials
+tools = ./tools
 
 
-files := $(patsubst $(tmp_dir)/%.md,$(tmp_dir)/%.html,$(wildcard $(tmp_dir)/*.md))
-objects := $(patsubst %.txt,%.html,$(wildcard *.txt))
+files := $(patsubst $(tmp)/%.md,$(tmp)/%.html,$(wildcard $(tmp)/*.md))
 
-all:
-	@echo 'no default'
+all: clean copy build index
 
 clean:
-	rm $(tmp_files)
-
-test:
-	sh for i in $(tmp_files) ; do mv "$i" "${i/-[0-9.]*.md/.md}" ; done
+	-rm -rf $(tmp)
 
 copy: $(notes)
-	cp -r $(notes) $(tmp_dir)
-	cd $(tmp_dir)
-	bash rename.sh $(tmp_dir)
+	mkdir -p $(tmp)
+	bash $(tools)/rename.sh $(notes) $(tmp)
 
-build: $(files)
+build: $(files) 
+	mv -f "$(tmp)"/*.html "$(build)"/
 
 %.html: %.md
+	cat $(partials)/header.html > $@
 	markdown $< >> $@
+	cat $(partials)/footer.html >> $@
+
+index:
+	cat $(partials)/header.html > $(build)/index.html
+	bash $(tools)/create_index.sh $(build) >> $(build)/index.html
+	cat $(partials)/footer.html >> $(build)/index.html

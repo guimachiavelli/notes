@@ -4,7 +4,7 @@ if [ $# -eq 0 ]
 then
     echo 'no folder supplied'
 else
-    for f in $1/* ; do
+    for f in $1/*.* ; do
         clean=${f//$1/}
         clean=${clean,,}
         clean=${clean%.*}
@@ -13,10 +13,11 @@ else
         clean=${clean//--/-}
 
         # now, clean out anything that's not alphanumeric or an underscore
-        clean=$1/${clean//[^a-zA-Z0-9_-]/}.md
+        clean=${clean//[^a-zA-Z0-9_]/}.md
 
-        mv "$f" "${clean}"
-        #echo $clean
-        #echo $1
+        timestamp=$(stat -nf'%B' "$f")
+        date=$(date -r ${timestamp} '+%Y_%m_%d')
+
+        cp "$f" "$2/${date}-${clean}"
     done
 fi
