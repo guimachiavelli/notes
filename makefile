@@ -31,3 +31,6 @@ index:
 	cat $(partials)/header.html > $(build)/index.html
 	bash $(tools)/create_index.sh $(build) >> $(build)/index.html
 	cat $(partials)/footer.html >> $(build)/index.html
+
+deploy:
+	git subtree push --prefix $(build) origin gh-pages
