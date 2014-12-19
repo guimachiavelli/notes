@@ -10,6 +10,8 @@ else
         name=${f//$1/}
         name=${name////}
         name=${name//.html/}
+        name=${name//[0-9_]*-/}
+        name=${name//_/ }
 
         if [ "$name" == "index" ]
             then 

@@ -15,7 +15,7 @@ all: clean copy build index
 clean:
 	-rm -rf $(tmp)
 
-copy: $(notes)
+copy: $(notes)/*
 	mkdir -p $(tmp)
 	bash $(tools)/rename.sh $(notes) $(tmp)
 
