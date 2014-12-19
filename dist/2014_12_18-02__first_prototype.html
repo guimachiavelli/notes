@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Notes</title>
+        <link href="https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer:400,400italic" rel="stylesheet">
+        <style>
+            html {
+                font-size: 62.5%;
+            }
+
+            body {
+                font-family: "IM Fell Great Primer", Georgia, serif;
+                width: 50%;
+                max-width: 500px;
+                margin: 3.2em auto;
+                line-height: 1.6em;
+            }
+
+            a {
+                color: #000bff;
+            }
+
+            a:hover {
+                border-bottom: 4px double #000bff;
+            }
+
+            p, li {
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+                border-bottom: 4px double #000bff;
+                display: inline;
+                font-family: 'IM Fell Great Primer SC', serif;
+                margin: 4em 0 1.6em 0;
+            }
+
+            a {
+                color: #3a3333;
+            }
+
+            .index {
+                list-style-type: asterisks;
+                font-size: 1.5rem;
+            }
+
+            @media (max-width: 576px) {
+                body {
+                    width: 80%;
+                }
+            }
+        </style>
+	</head>
+	
+	<body>
+<h1>02 – first prototype</h1>
+
+<p>first attempt, without properly sanitised files and with a rudimentary random selector does not really work. I was expecting that things would connect a bit more, that the verses by themselves would be connected by the reader’s mind because of simple juxtaposition.</p>
+
+<p>it’s almost there on some cases:</p>
+
+<pre><code>To lodge beneath my scarlet tunic's fold?
+And if it rains, a closed car at four.
+Interior of the cavern, side by side
+And from the turf a fountain broke
+A ronnynge pryze onn seyncte daie to ordayne,
+And let that pine to aggravate thy store;
+To early coffee-stands.
+</code></pre>
+
+<p>but most are like this:</p>
+
+<pre><code>But she, incontinent, shut fast the doors.
+Drive my dead thoughts over the universe
+Do I dare
+"Scipio, Laelius and Cato conversing," from a fourteenth century 
+The Song of the (three) Thames-daughters begins here.
+In the midst of their little circle, with their slaughter'd horses
+So may some gentle Muse
+When the wind blows the water white and black.
+Because, through rev'rence of him, we had saved
+Feirce as the fallynge thunderbolte they flie;
+</code></pre>
+
+<p>or:</p>
+
+<pre><code>I have seen the moment of my greatness flicker,
+Till, weary of their wiles, ourselves we ease;
+</code></pre>
+
+<p>the first two great weaknesses seem to be:
+* change of lyric person (or however that’s called in english, eu lírico). e.g, “I have seen” followed by “ourselves we ease”;
+* punctuation</p>
+
+<p>the constant back and forth on the first one destroys any sort of illusion quickly. of course, I never expected for anything amazing to be concatenated, but I would like to facilitate serendipitous combinations. </p>
+
+<p>one idea could be that each sentence sort of affects the choice of the next. so, for instance, if in sentence A there’s a personal pronoun, we’ll discard any sentence B that contains a different personal pronoun.</p>
+
+<p>another thing would be to try and edit punctuation a little bit.  at last to avoid ending the poem on a coma or semicolon, which is awkward, to say the least.</p>
+
+<p>other thing that could help if used correctly, but which is much more involved, would be some sort of machine learning algorithm that could learn what goes best with what. just how to do it, though, is a bit of a mystery. would it be possible to categorise stuff as good or bad and have that categorisation to have some weight on which combinations are good and which combinations are bad? alternatively, or perhaps building on the same idea, it is possible that tagging verses (in terms of mood and/or subject) could have a positive effect: sad things about horses seem to be more likely to go well together than happy things about seamen and sad things about melons.</p>
+
+<p>as usual, it all depends on how deep I want to go about this study. it can take ages to get the logic right for machine learning, never mind training it.</p>
+    </body>
+</html>
