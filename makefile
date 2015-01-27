@@ -1,7 +1,7 @@
 .PHONY: clean index
 
 notes = ~/notes
-build = ./dist
+build = dist
 tmp = ./tmp
 processed = $(tmp)/processed
 partials = ./partials
