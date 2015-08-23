@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Notes</title>
+        <link href="https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer:400,400italic" rel="stylesheet">
+        <style>
+            html {
+                font-size: 62.5%;
+            }
+
+            body {
+                font-family: "IM Fell Great Primer", Georgia, serif;
+                width: 50%;
+                max-width: 500px;
+                margin: 3.2em auto;
+                line-height: 1.6em;
+            }
+
+            a {
+                color: #000bff;
+            }
+
+            a:hover {
+                border-bottom: 4px double #000bff;
+            }
+
+            p, li {
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+                border-bottom: 4px double #000bff;
+                display: inline;
+                font-family: 'IM Fell Great Primer SC', serif;
+                margin: 4em 0 1.6em 0;
+            }
+
+            a {
+                color: #3a3333;
+            }
+
+            .index {
+                list-style-type: asterisks;
+                font-size: 1.5rem;
+            }
+
+            @media (max-width: 576px) {
+                body {
+                    width: 80%;
+                }
+            }
+        </style>
+	</head>
+	
+	<body>
+<h1>02 second prototype</h1>
+
+<ul>
+<li><p>limiting the amount of personal pronouns seems to have had a positive effect on the overall cohesion:</p>
+
+<p>Of infant slain by doom perverse.
+Yet, are we not for one brief day,
+And--"Are we then so serious?"
+But we will downward with the Tweed,
+(Unwillingly we broke our master's chain),
+Was the road of late so toilsome? did we stop discouraged nodding
+"What shall we ever do?"
+I doubt, but let us call, that we may learn.</p></li>
+<li><p>following that, I tried to avoid starting a verse with the same type of word that ended the previous verse, in order to avoid two prepositions and other awkward structures:
+And danced all the modern dances;
+Deplored with tears her long-regretted Lord
+And reaching fingers, 'mid a luscious heap
+Nothing again nothing. </p></li>
+<li><p>Still need to take care of the punctuation. removing it from the end of each verse might be the best compromise. </p></li>
+<li><p>I’m getting to a point that the quality of the corpus starts to become a problem. not only the initial cleanup is far from ideal (there’s a lot of prose, like historical context and footnotes mingled with the poetry, as well as line numbers);</p></li>
+<li><p>besides improving clean up, it could be nice to take in consideration some of the poem’s original structure. more specifically, I’m thinking about special cases for first and last verse of each stanza and avoid using those two types of verses in the wrong place.</p></li>
+<li><p>eventually, once I settle down on all variables (verse position, word category, punctuation, etc), the best way to build poems might be using some sort of score algorithm. currently, <code>good_enough?</code> is a yes/no selection, which is easier to code, but I’m afraid also limits the probability of truly weird and interesting poems.</p></li>
+<li><p>since this is only a study, I’m most likely removing the zero-player game part I originally planned. the minimum deliverable will be a simple site that generates poems on-demand;</p></li>
+<li><p>possible extras to the site would be to set a mood for the poem and rate each poem. both would raise the complexity quite a bit (the corpus would have to be classified according to the moods and rating would ideally feedback into the scoring algorithm, which is not trivial)</p></li>
+<li><p>alternatively, I could set this up as a poetry notebook of a bot  (like horse_ebooks, random shopper, etc). that would need setting up a simple db, so I could store all poems. dealing with the navigation would be a pain.</p></li>
+</ul>
+    </body>
+</html>
